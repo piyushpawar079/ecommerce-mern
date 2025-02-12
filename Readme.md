@@ -27,6 +27,8 @@
 
 ## **⚡ Setup Instructions**  
 
+0. Create a .env file using the .env.sample file which is provided in the backend folder
+
 1. Clone the Repository  
     ```sh
     git clone https://github.com/piyushpawar079/ecommerce-mern.git
