@@ -36,16 +36,16 @@
 2. Start the frontend
     ```sh
     cd \frontend
-    npm install  # Install dependencies
-    npm run dev  # Run the React frontend (default: http://localhost:5173)
+    npm install  
+    npm run dev 
     ```
 
 3. Start the backend
     ```sh
     #open new terminal and paste the following code
     cd \server
-    npm install  # Install dependencies
-    npm start  # Run the ExpressJS backend
+    npm install
+    npm start
     ```
 
 4. Open in Browser
