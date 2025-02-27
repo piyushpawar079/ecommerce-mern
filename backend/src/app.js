@@ -9,7 +9,7 @@ import orderRouter from './routes/order.routes.js'
 const app = express();
 
 app.use(cors({
-    origin: "*", // Allow all origins
+    origin: "https://mernwear-frontend.onrender.com", // Allow all origins
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
 }));
