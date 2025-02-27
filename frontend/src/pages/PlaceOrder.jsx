@@ -50,7 +50,7 @@ const PlaceOrder = () => {
       } 
       else {
         axios
-          .post('http://localhost:8000/api/v1/user/getUser', { Id: userId })
+          .post('https://mernwear-backend.onrender.com/api/v1/user/getUser', { Id: userId })
           .then((res) => {
             const userName = res.data.msg.username; // Fetch username here
             console.log(userName);
@@ -81,7 +81,7 @@ const PlaceOrder = () => {
             };
     
             axios
-              .post("http://localhost:8000/api/v1/order/place-order", orderData)
+              .post("https://mernwear-backend.onrender.com/api/v1/order/place-order", orderData)
               .then((data) => {
                 console.log("Order placed successfully", data.data.order);
                 notify('Order placed successfully')

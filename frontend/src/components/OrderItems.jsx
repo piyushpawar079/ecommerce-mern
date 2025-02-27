@@ -9,7 +9,7 @@ const OrderItems = () => {
   useEffect(() => {
     // Fetch all orders
     axios
-      .post('http://localhost:8000/api/v1/order/all-orders')
+      .post('https://mernwear-backend.onrender.com/api/v1/order/all-orders')
       .then((res) => {
         setOrders(res.data.msg);
 
@@ -35,7 +35,7 @@ const OrderItems = () => {
   
     // Hit the API endpoint to update the status in the database
     axios
-      .post('http://localhost:8000/api/v1/order/update-status', {
+      .post('https://mernwear-backend.onrender.com/api/v1/order/update-status', {
         orderId: orderId,
         status: newStatus,
       })

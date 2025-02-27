@@ -18,7 +18,7 @@ const SignUp = ({role='user'}) => {
     const data = {username, email, password, role }
 
     axios
-    .post('http://localhost:8000/api/v1/user/register', data)
+    .post('https://mernwear-backend.onrender.com/api/v1/user/register', data)
     .then((res) => {
       console.log('user created: ', res)
 

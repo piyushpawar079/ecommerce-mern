@@ -7,7 +7,7 @@ const ListItems = () => {
 
   useEffect(() => {
     axios
-      .post('http://localhost:8000/api/v1/product/all-items')
+      .post('https://mernwear-backend.onrender.com/api/v1/product/all-items')
       .then((res) => {
         console.log(res.data.msg);
         setProducts(res.data.msg);
@@ -20,7 +20,7 @@ const ListItems = () => {
   const handleClick = (product) => {
     console.log(product)
     axios 
-    .post(`http://localhost:8000/api/v1/product/delete-product/${product.name}`)
+    .post(`https://mernwear-backend.onrender.com/api/v1/product/delete-product/${product.name}`)
     .then((res) => {
       console.log(res.data.msg)
       notify('Product deleted successfully', 'success')

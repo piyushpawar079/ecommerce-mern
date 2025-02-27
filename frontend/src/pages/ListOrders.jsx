@@ -9,13 +9,13 @@ const ListOrders = () => {
 
   const fetchOrders = () => {
     axios
-    .post('http://localhost:8000/api/v1/user/getUser', { Id: userId })
+    .post('https://mernwear-backend.onrender.com/api/v1/user/getUser', { Id: userId })
     .then((res) => {
       const userName = res.data.msg.username; // Fetch username here
       console.log(userName);
 
       axios
-        .post("http://localhost:8000/api/v1/order/all-orders", { userName })
+        .post("https://mernwear-backend.onrender.com/api/v1/order/all-orders", { userName })
         .then((res) => {
           console.log(res);  
           setOrders(res.data.msg);
@@ -34,7 +34,7 @@ const ListOrders = () => {
   const deleteOrder = (id) => {
 
     axios
-    .post('http://localhost:8000/api/v1/order/delete-order', {id: id})
+    .post('https://mernwear-backend.onrender.com/api/v1/order/delete-order', {id: id})
     .then((res) => {
       fetchOrders()
       notify('Order deleted Successfully')

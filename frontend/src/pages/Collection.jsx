@@ -13,7 +13,7 @@ const Collection = () => {
 
   const fetchFilteredProducts = async (filters) => {
     try {
-      await axios.post('http://localhost:8000/api/v1/product/all-items', filters)
+      await axios.post('https://mernwear-backend.onrender.com/api/v1/product/all-items', filters)
         .then((res) => {
           setProducts(res.data.msg || []); // Update the product list with fetched data
         })

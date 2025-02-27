@@ -23,7 +23,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:8000/api/v1/product/singleProduct/${title}`)
+      .post(`https://mernwear-backend.onrender.com/api/v1/product/singleProduct/${title}`)
       .then((res) => {
         const response = res.data.msg;
         setImages(response.images);

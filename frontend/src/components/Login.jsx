@@ -19,7 +19,7 @@ const Login = ({flag=false}) => {
       const role = 'admin'
       const data = { email, password, role }
       axios
-    .post('http://localhost:8000/api/v1/admin/login', data)
+    .post('https://mernwear-backend.onrender.com/api/v1/admin/login', data)
     .then((res) => {
       console.log('Admin logged in : ', res)
       dispatch(adminLogin())
@@ -34,7 +34,7 @@ const Login = ({flag=false}) => {
       const role = 'user'
       const data = { email, password, role }
       axios
-    .post('http://localhost:8000/api/v1/user/login', data)
+    .post('https://mernwear-backend.onrender.com/api/v1/user/login', data)
     .then((res) => {
       console.log('user logged in : ', res)
       const userId = res.data.data._id

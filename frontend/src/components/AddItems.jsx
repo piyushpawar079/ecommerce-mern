@@ -52,7 +52,7 @@ const AddItems = () => {
     formData.append('sizes', JSON.stringify(selectedSizes)); // Convert array to string for storage
 
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/admin/add-items', formData, {
+      const response = await axios.post('https://mernwear-backend.onrender.com/api/v1/admin/add-items', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Required for file uploads
         },
