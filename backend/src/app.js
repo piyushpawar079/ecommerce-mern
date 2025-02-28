@@ -9,7 +9,7 @@ import orderRouter from './routes/order.routes.js'
 const app = express();
 
 app.use(cors({
-    origin: "https://mernwear-frontend.onrender.com", // Allow all origins
+    origin: "*", // Allow all origins
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
 }));
@@ -17,7 +17,7 @@ app.use(cors({
 // Handle preflight requests properly
 app.options("*", cors());
 
-app.use(express.json({limit: "16kb"}))
+app.use(express.json())
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
