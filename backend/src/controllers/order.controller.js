@@ -94,7 +94,7 @@ const getAllOrders = async (req, res) => {
   console.log(orders)
 
   if (!orders) {
-    throw console.error('orders not found')
+    throw Error('orders not found')
   }
 
   res.status(201).json({

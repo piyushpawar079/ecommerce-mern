@@ -19,7 +19,7 @@ const addProduct = async (req, res) => {
     ))
 
     if (paths.length == 0) {
-        throw console.error('images path does not exist')
+        throw new Error('images path does not exist')
     }
 
     const existingProduct = await Product.findOne({
@@ -27,7 +27,7 @@ const addProduct = async (req, res) => {
     })
 
     if (existingProduct) {
-        throw console.error('product already exists, try to add new product');
+        throw new Error('product already exists, try to add new product');
     }
 
     const urlPromises = paths.map((path) => fileUpload(path)); 
@@ -54,7 +54,7 @@ const addProduct = async (req, res) => {
     const product = await Product.create(newProduct)
 
     if (!product) {
-        throw console.error('something went wrong while adding new product to the database');
+        throw new Error('something went wrong while adding new product to the database');
     }
 
     return res.status(200).json({
@@ -119,7 +119,7 @@ const getSingleProduct = async (req, res) => {
     const { productName } = req.params
 
     if (!productName) {
-        throw console.error('Product name is not found')
+        throw new Error('Product name is not found')
     }
 
 
@@ -128,7 +128,7 @@ const getSingleProduct = async (req, res) => {
     })
 
     if (!product) {
-        throw console.error('Product not found')
+        throw new Error('Product not found')
     }
 
     return res.status(200).json({
@@ -142,7 +142,7 @@ const deleteProduct = async (req, res) => {
     const { title } = req.params
 
     if (!title) {
-        throw console.error('Title not provided while deleting the product')
+        throw new Error('Title not provided while deleting the product')
     }
 
     const deletedProduct = await Product.deleteOne({
@@ -150,7 +150,7 @@ const deleteProduct = async (req, res) => {
     })
 
     if (!deletedProduct) {
-        throw console.error('Something went wrong while deleting a product', title)
+        throw new Error('Something went wrong while deleting a product', title)
     }
 
     res.status(200).json({

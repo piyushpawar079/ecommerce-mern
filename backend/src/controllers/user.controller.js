@@ -7,7 +7,7 @@ const registerUser = async (req, res) => {
     const { username, email, password, role } = req.body
 
     if (!username || !email || !password || !role) {
-        throw console.error('send valid data');
+        throw Error('send valid data');
          
     }
 
@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
     })
 
     if (existingUser) {
-        throw console.error('user already exists');
+        throw Error('user already exists');
          
     }
 
@@ -34,7 +34,7 @@ const registerUser = async (req, res) => {
     )
 
     if (!createdUser) {
-        throw console.error('User not created');
+        throw Error('User not created');
          
     }
 
@@ -51,7 +51,7 @@ const login = async (req, res) => {
     const { email, password, role } = req.body
 
     if (!email || !password || !role) {
-        throw new console.error('Invalid data provided');
+        throw new Error('Invalid data provided');
         
     }
 
@@ -63,8 +63,7 @@ const login = async (req, res) => {
       });
 
     if (!user) {
-        throw new console.error(`${role} does not exist`);
- 
+        throw new Error(`${role} does not exist`);
     }
 
     return res.status(201).json({
@@ -90,7 +89,7 @@ const getUser = async (req, res) => {
   
       res.status(200).json({ msg: user });
     } catch (error) {
-      console.error(`Error while fetching user: ${error.message}`);
+      Error(`Error while fetching user: ${error.message}`);
       res.status(500).json({ msg: 'Internal server error' });
     }
   };
