@@ -12,8 +12,7 @@ const ListItems = () => {
         setProducts(res.data.msg);
       })
       .catch((err) => {
-        notify(err.msg, 'error')
-        
+        notify(err.response.data.error, 'error')        
       });
   }, []);
 
@@ -25,7 +24,7 @@ const ListItems = () => {
       setProducts(products.filter((item) => item.name !== product.name));
     })
     .catch((err) => {
-      notify(err.msg, 'error')
+      notify(err.response.data.error, 'error')
     })
   }
 

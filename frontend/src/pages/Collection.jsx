@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Filter, ProductList } from '../components'
+import { notify } from '../components';
 
 const Collection = () => {
 
@@ -18,10 +19,9 @@ const Collection = () => {
           setProducts(res.data.msg || []); // Update the product list with fetched data
         })
         .catch((err) => {
-          notify(err.msg, 'error')
+          notify(err.reponse.data.error, 'error')
         })
     } catch (error) {
-        console.error('Error fetching filtered products:', error);
         notify("Error fetching filtered products:", 'error')
     }
   };

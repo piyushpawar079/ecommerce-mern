@@ -51,7 +51,7 @@ const Header = () => {
             </div>)}
             </NavLink>
 
-            <NavLink target='_blank' to='/admin/signUp' className={({isActive}) => `flex flex-col items-center ${isActive ? 'text-gray-900'  : 'text-gray-500'} `}  >
+            <NavLink  to='/admin/signUp' className={({isActive}) => `flex flex-col items-center ${isActive ? 'text-gray-900'  : 'text-gray-500'} `}  >
             {({ isActive }) => (
             <div className="flex flex-col items-center gap-1">
               <p className={isActive ? 'text-black' : 'text-gray-500'}>ADMIN</p>

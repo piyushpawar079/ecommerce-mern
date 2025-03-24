@@ -34,8 +34,7 @@ const SingleProduct = () => {
         setSizes(response.sizes);
       })
       .catch((err) => {
-        console.log(err)
-        notify(err.msg, 'error')
+        notify(err.reponse.data.error, 'error')
       });
   }, [title]);
 

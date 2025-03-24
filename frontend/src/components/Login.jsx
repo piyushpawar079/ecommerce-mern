@@ -26,7 +26,7 @@ const Login = ({flag=false}) => {
       navigate('/admin')
     })
     .catch((error) => {
-      notify(error.msg, 'error')
+      notify(error.response.data.error, 'error')
     })
     } else{
       const role = 'user'
@@ -40,8 +40,7 @@ const Login = ({flag=false}) => {
       navigate('/')
     })
     .catch((error) => {
-      console.log(error)
-      notify(error.msg, 'error')
+      notify(error.response.data.error, 'error')
     })
     }
   }

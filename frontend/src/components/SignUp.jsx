@@ -30,10 +30,9 @@ const SignUp = ({role='user'}) => {
         notify('Admin registered successfully', 'success')
         navigate('/admin')
       }
-
     })
     .catch((error) => {
-      notify(error.msg, 'error')
+      notify(error.response.data.error, 'error')
     })
     }
 

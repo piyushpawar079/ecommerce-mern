@@ -60,7 +60,7 @@ const AddItems = () => {
       notify('Product added successfully', 'success')
       nav('/admin/v1/list-items')
     } catch (error) {
-      notify(error.msg, 'error')
+      notify(error.response.data.msg, 'error')
     }
   };
 
@@ -171,10 +171,6 @@ const AddItems = () => {
           </div>
         </div>
 
-        <div className="mt-7 flex gap-3 text-lg">
-          <input type="checkbox" className="border" />
-          <p>Add to BestSeller</p>
-        </div>
 
         <button
           className="mt-5 bg-black text-white py-2 px-8 rounded-lg text-lg"

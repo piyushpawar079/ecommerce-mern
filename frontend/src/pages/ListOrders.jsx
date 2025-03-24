@@ -19,12 +19,12 @@ const ListOrders = () => {
           setOrders(res.data.msg);
         })
         .catch((err) => {
-          notify(err.msg, 'error')
+          notify(err.response.data.error, 'error')
         });
       
     })
     .catch((err) => {
-      notify(err.msg, 'error')
+      notify(err.response.data.error, 'error')
     });
 
   };
@@ -38,7 +38,7 @@ const ListOrders = () => {
       notify('Order deleted Successfully')
     })
     .catch((err) => {
-      notify(err.msg, 'error')
+      notify(err.response.data.error, 'error')
     })
 
   }

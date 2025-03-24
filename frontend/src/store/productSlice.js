@@ -30,10 +30,14 @@ const productSlice = createSlice({
 
         updateQuantity: (state, action) => {
             state.quantity = action.payload
+        },
+
+        reduceProductCount: (state, action) => {
+            state.productCount -= 1;
         }
     }
 })
 
-export const { addProduct, removeProduct, updateQuantity } = productSlice.actions
+export const { addProduct, removeProduct, updateQuantity, reduceProductCount } = productSlice.actions
 
 export default productSlice.reducer;

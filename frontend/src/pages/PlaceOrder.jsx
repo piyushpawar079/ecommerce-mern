@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { notify } from '../components';
+import { reduceProductCount } from '../store/productSlice';
 
 const PlaceOrder = () => {
 
@@ -17,7 +18,7 @@ const PlaceOrder = () => {
   const quantity = useSelector((state) => state.product.quantity)
   const userId = useSelector((state) => state.auth.userId)
   const nav = useNavigate()
-  let userName;
+  const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
       firstName: "",
@@ -46,14 +47,13 @@ const PlaceOrder = () => {
       );
     
       if (isEmpty) {
-        alert("All details are necessary!");
+        notify("All details are necessary!", 'error');
       } 
       else {
         axios
           .post('https://mernwear-backend.onrender.com/api/v1/user/getUser', { Id: userId })
           .then((res) => {
             const userName = res.data.msg.username; // Fetch username here
-    
             const productsArray = products.map((product) => ({
               product: product.productId,
               quantity: quantity[product.title],
@@ -61,8 +61,7 @@ const PlaceOrder = () => {
               title: product.title,
               size: product.selectedSizes || "default",
               image: product.selectedImage
-            }));
-    
+          }))
             const orderData = {
               user: userName, // Username is now defined
               products: productsArray,
@@ -83,14 +82,15 @@ const PlaceOrder = () => {
               .post("https://mernwear-backend.onrender.com/api/v1/order/place-order", orderData)
               .then((data) => {
                 notify('Order placed successfully')
+                dispatch(reduceProductCount());
                 nav('/allOrders');
               })
               .catch((err) => {
-                console.error(err);
+                notify(err.response.data.error, 'error')
               });
           })
           .catch((err) => {
-            notify(err.msg, 'error')
+            notify(err.response.data.error, 'error')
           });
       }
     };

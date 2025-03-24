@@ -21,7 +21,7 @@ const OrderItems = () => {
         setOrderStatus(initialStatus);
       })
       .catch((err) => {
-        notify(err.response?.data?.msg || err.message, 'error');
+        notify( err.response.data.error, 'error');
       });
   }, []);
 
@@ -43,10 +43,7 @@ const OrderItems = () => {
         notify('Order status updated successfully', 'success');
       })
       .catch((err) => {
-        notify(
-          err.response?.data?.msg || 'Failed to update status. Please try again.',
-          'error'
-        );
+        notify('Failed to update status. Please try again.', 'error' );
         console.error(err);
   
         // Revert state if the API call fails

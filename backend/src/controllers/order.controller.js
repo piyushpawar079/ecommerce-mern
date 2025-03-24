@@ -16,18 +16,18 @@ const newOrder = async (req, res) => {
     // console.log(user, products, totalAmount, shippingAddress, paymentMethod)
     // Step 1: Validate Input Data
     if (!user || !products || !Array.isArray(products) || products.length === 0 || !totalAmount || !paymentMethod) {
-      return res.status(400).json({ error: "Missing or invalid required fields." });
+      return res.status(400).json({ msg: "Missing or invalid required fields." });
     }
 
     const userExists = await User.findOne({ username: user });
     if (!userExists) {
-        return res.status(400).json({ message: 'User does not exist' });
+        return res.status(400).json({ msg: 'User does not exist' });
     }
 
     // Validate shipping address
     const { lastname, street, city, state, zipcode, country, phone } = shippingAddress || {};
     if (!lastname || !street || !city || !state || !zipcode || !country || !phone) {
-      return res.status(400).json({ error: "Incomplete shipping address." });
+      return res.status(400).json({ msg: "Incomplete shipping address." });
     }
 
     // Validate products array
@@ -40,7 +40,7 @@ const newOrder = async (req, res) => {
     );
 
     if (invalidProduct) {
-      return res.status(400).json({ error: "Invalid product details in the order." });
+      return res.status(400).json({ msg: "Invalid product details in the order." });
     }
 
     // Step 2: Create the Order Object
@@ -72,7 +72,7 @@ const newOrder = async (req, res) => {
   } catch (error) {
     console.error("Error placing order:", error);
     return res.status(500).json({
-      error: "An error occurred while placing the order. Please try again.",
+      msg: "An error occurred while placing the order. Please try again.",
     });
   }
 };
@@ -91,12 +91,10 @@ const getAllOrders = async (req, res) => {
     })
   }
 
-  console.log(orders)
-
   if (!orders) {
     // throw Error('orders not found')
     return res.status(405).json({
-      error: "Orders not found",
+      msg: "Orders not found",
     });
   }
 
@@ -129,7 +127,7 @@ const deleteOrder = async (req, res) => {
   if (!id) {
     // throw console.error('id not found to delete the placed order')
     return res.status(500).json({
-      error: "id not found to delete the placed order",
+      msg: "id not found to delete the placed order",
     });
   }
 
