@@ -94,7 +94,10 @@ const getAllOrders = async (req, res) => {
   console.log(orders)
 
   if (!orders) {
-    throw Error('orders not found')
+    // throw Error('orders not found')
+    return res.status(405).json({
+      error: "Orders not found",
+    });
   }
 
   res.status(201).json({
@@ -124,7 +127,10 @@ const deleteOrder = async (req, res) => {
   console.log(req.body)
 
   if (!id) {
-    throw console.error('id not found to delete the placed order')
+    // throw console.error('id not found to delete the placed order')
+    return res.status(500).json({
+      error: "id not found to delete the placed order",
+    });
   }
 
   try {

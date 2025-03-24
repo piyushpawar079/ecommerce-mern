@@ -9,25 +9,23 @@ const ListItems = () => {
     axios
       .post('https://mernwear-backend.onrender.com/api/v1/product/all-items')
       .then((res) => {
-        console.log(res.data.msg);
         setProducts(res.data.msg);
       })
       .catch((err) => {
-        console.error(err);
+        notify(err.msg, 'error')
+        
       });
   }, []);
 
   const handleClick = (product) => {
-    console.log(product)
     axios 
     .post(`https://mernwear-backend.onrender.com/api/v1/product/delete-product/${product.name}`)
     .then((res) => {
-      console.log(res.data.msg)
       notify('Product deleted successfully', 'success')
       setProducts(products.filter((item) => item.name !== product.name));
     })
     .catch((err) => {
-      console.error(err)
+      notify(err.msg, 'error')
     })
   }
 

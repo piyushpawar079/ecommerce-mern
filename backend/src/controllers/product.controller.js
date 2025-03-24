@@ -9,7 +9,10 @@ const addProduct = async (req, res) => {
 
 
     if (!productName || !productDescription || !category || !subCategory || !price || !sizes || images.length === 0) {
-        throw console.error('send all the fields required to add a new product in the database');
+        // throw console.error('send all the fields required to add a new product in the database');
+        return res.status(500).json({
+            error: "send all the fields required to add a new product in the database",
+          });
     }
 
     const paths = []
@@ -19,7 +22,10 @@ const addProduct = async (req, res) => {
     ))
 
     if (paths.length == 0) {
-        throw new Error('images path does not exist')
+        // throw new Error('images path does not exist')
+        return res.status(500).json({
+            error: "images path does not exist",
+          });
     }
 
     const existingProduct = await Product.findOne({
@@ -27,7 +33,10 @@ const addProduct = async (req, res) => {
     })
 
     if (existingProduct) {
-        throw new Error('product already exists, try to add new product');
+        // throw new Error('product already exists, try to add new product');
+        return res.status(500).json({
+            error: "product already exists, try to add new product",
+          });
     }
 
     const urlPromises = paths.map((path) => fileUpload(path)); 
@@ -54,7 +63,10 @@ const addProduct = async (req, res) => {
     const product = await Product.create(newProduct)
 
     if (!product) {
-        throw new Error('something went wrong while adding new product to the database');
+        // throw new Error('something went wrong while adding new product to the database');
+        return res.status(500).json({
+            error: "something went wrong while adding new product to the database",
+          });
     }
 
     return res.status(200).json({
@@ -119,7 +131,10 @@ const getSingleProduct = async (req, res) => {
     const { productName } = req.params
 
     if (!productName) {
-        throw new Error('Product name is not found')
+        // throw new Error('Product name is not found')
+        return res.status(500).json({
+            error: "Product name is not found",
+          });
     }
 
 
@@ -128,7 +143,10 @@ const getSingleProduct = async (req, res) => {
     })
 
     if (!product) {
-        throw new Error('Product not found')
+        // throw new Error('Product not found')
+        return res.status(500).json({
+            msg: "Product not found",
+          });
     }
 
     return res.status(200).json({
@@ -142,7 +160,10 @@ const deleteProduct = async (req, res) => {
     const { title } = req.params
 
     if (!title) {
-        throw new Error('Title not provided while deleting the product')
+        // throw new Error('Title not provided while deleting the product')
+        return res.status(500).json({
+            error: "Title not provided while deleting the product",
+          });
     }
 
     const deletedProduct = await Product.deleteOne({
@@ -150,7 +171,11 @@ const deleteProduct = async (req, res) => {
     })
 
     if (!deletedProduct) {
-        throw new Error('Something went wrong while deleting a product', title)
+        // throw new Error('Something went wrong while deleting a product', title)
+        return res.status(500).json({
+            error: "Something went wrong while deleting a product",
+            title: title
+          });
     }
 
     res.status(200).json({

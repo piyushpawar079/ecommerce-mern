@@ -20,7 +20,6 @@ const SignUp = ({role='user'}) => {
     axios
     .post('https://mernwear-backend.onrender.com/api/v1/user/register', data)
     .then((res) => {
-      console.log('user created: ', res)
 
       if (role === 'user') {
         dispatch(userLogin(res.data.data._id))
@@ -34,7 +33,6 @@ const SignUp = ({role='user'}) => {
 
     })
     .catch((error) => {
-      console.log(error)
       notify(error.msg, 'error')
     })
     }

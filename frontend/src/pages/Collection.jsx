@@ -18,10 +18,11 @@ const Collection = () => {
           setProducts(res.data.msg || []); // Update the product list with fetched data
         })
         .catch((err) => {
-          console.log(err)
+          notify(err.msg, 'error')
         })
     } catch (error) {
         console.error('Error fetching filtered products:', error);
+        notify("Error fetching filtered products:", 'error')
     }
   };
 

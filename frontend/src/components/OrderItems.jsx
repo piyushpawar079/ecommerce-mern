@@ -41,7 +41,6 @@ const OrderItems = () => {
       })
       .then((res) => {
         notify('Order status updated successfully', 'success');
-        console.log(res.data);
       })
       .catch((err) => {
         notify(

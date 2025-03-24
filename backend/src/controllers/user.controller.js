@@ -7,8 +7,10 @@ const registerUser = async (req, res) => {
     const { username, email, password, role } = req.body
 
     if (!username || !email || !password || !role) {
-        throw Error('send valid data');
-         
+        // throw Error('send valid data');
+        return res.status(500).json({
+            error: "send valid data",
+          });
     }
 
     const existingUser = await User.findOne({
@@ -16,8 +18,10 @@ const registerUser = async (req, res) => {
     })
 
     if (existingUser) {
-        throw Error('user already exists');
-         
+        // throw Error('user already exists');
+        return res.status(500).json({
+            error: "user already exists",
+          });
     }
 
     const user = {
@@ -34,8 +38,10 @@ const registerUser = async (req, res) => {
     )
 
     if (!createdUser) {
-        throw Error('User not created');
-         
+        // throw Error('User not created');
+        return res.status(500).json({
+            error: "User not created",
+          });
     }
 
     return res.status(200).json({
@@ -51,8 +57,10 @@ const login = async (req, res) => {
     const { email, password, role } = req.body
 
     if (!email || !password || !role) {
-        throw new Error('Invalid data provided');
-        
+        // throw new Error('Invalid data provided');
+        return res.status(500).json({
+            error: "Invalid data provided",
+          });
     }
 
     const user = await User.findOne({
@@ -63,7 +71,10 @@ const login = async (req, res) => {
       });
 
     if (!user) {
-        throw new Error(`${role} does not exist`);
+        // throw new Error(`${role} does not exist`);
+        return res.status(500).json({
+            error: `${role} does not exist`,
+          });
     }
 
     return res.status(201).json({

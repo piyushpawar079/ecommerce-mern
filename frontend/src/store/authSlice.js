@@ -13,7 +13,6 @@ const authSlice = createSlice({
         userLogin: (state, action) => {
             state.userAuth = true
             state.userId = action.payload
-            console.log(state.userId)
         },
 
         userLogout: (state) => {

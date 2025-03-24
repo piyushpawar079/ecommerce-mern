@@ -12,21 +12,19 @@ const ListOrders = () => {
     .post('https://mernwear-backend.onrender.com/api/v1/user/getUser', { Id: userId })
     .then((res) => {
       const userName = res.data.msg.username; // Fetch username here
-      console.log(userName);
 
       axios
         .post("https://mernwear-backend.onrender.com/api/v1/order/all-orders", { userName })
         .then((res) => {
-          console.log(res);  
           setOrders(res.data.msg);
         })
         .catch((err) => {
-          console.log(err);
+          notify(err.msg, 'error')
         });
       
     })
     .catch((err) => {
-      console.log(err.msg);
+      notify(err.msg, 'error')
     });
 
   };

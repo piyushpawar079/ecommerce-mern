@@ -57,12 +57,10 @@ const AddItems = () => {
           'Content-Type': 'multipart/form-data', // Required for file uploads
         },
       });
-      console.log('Product added successfully:', response.data);
       notify('Product added successfully', 'success')
       nav('/admin/v1/list-items')
     } catch (error) {
       notify(error.msg, 'error')
-      console.error('Error adding product:', error);
     }
   };
 

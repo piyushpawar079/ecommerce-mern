@@ -21,14 +21,12 @@ const Login = ({flag=false}) => {
       axios
     .post('https://mernwear-backend.onrender.com/api/v1/admin/login', data)
     .then((res) => {
-      console.log('Admin logged in : ', res)
       dispatch(adminLogin())
       notify('Admin Login Successfull', 'success')
       navigate('/admin')
     })
     .catch((error) => {
       notify(error.msg, 'error')
-      console.log(error)
     })
     } else{
       const role = 'user'
@@ -36,15 +34,14 @@ const Login = ({flag=false}) => {
       axios
     .post('https://mernwear-backend.onrender.com/api/v1/user/login', data)
     .then((res) => {
-      console.log('user logged in : ', res)
       const userId = res.data.data._id
       dispatch(userLogin(userId))
       notify('User Logged In successfully')
       navigate('/')
     })
     .catch((error) => {
-      notify(error.msg, 'error')
       console.log(error)
+      notify(error.msg, 'error')
     })
     }
   }

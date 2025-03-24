@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeProduct } from "../store/productSlice";
 import { useNavigate } from "react-router-dom";
 import { updateQuantity } from "../store/productSlice";
-import { notify } from "./Notification";
 
 const CartList = () => {
   const products = useSelector((state) => state.product.products); // Get cart products

@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='flex  my-10 '>
       
       <div className='w-[50%]'>
-        <h1 className='text-3xl font-semibold mb-5  '>MyWebsite </h1>
+        <h1 className='text-3xl font-semibold mb-5  '>MERNWear </h1>
         <p className='w-[49%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam libero, voluptatem ipsam illo eius necessitatibus quae vel sed ex dolore, maxime iure culpa ad praesentium quaerat, distinctio molestiae alias dolorum?</p>
       </div>
       <div className='w-[25%]'>

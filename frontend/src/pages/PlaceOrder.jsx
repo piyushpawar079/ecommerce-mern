@@ -53,7 +53,6 @@ const PlaceOrder = () => {
           .post('https://mernwear-backend.onrender.com/api/v1/user/getUser', { Id: userId })
           .then((res) => {
             const userName = res.data.msg.username; // Fetch username here
-            console.log(userName);
     
             const productsArray = products.map((product) => ({
               product: product.productId,
@@ -83,7 +82,6 @@ const PlaceOrder = () => {
             axios
               .post("https://mernwear-backend.onrender.com/api/v1/order/place-order", orderData)
               .then((data) => {
-                console.log("Order placed successfully", data.data.order);
                 notify('Order placed successfully')
                 nav('/allOrders');
               })
@@ -92,7 +90,7 @@ const PlaceOrder = () => {
               });
           })
           .catch((err) => {
-            console.log(err.msg);
+            notify(err.msg, 'error')
           });
       }
     };
