@@ -1,6 +1,6 @@
 # **Live link of the website**
 
-### https://mearnware.onrender.com
+### https://mernware.onrender.com
 
 
 # **🛍️ E-Commerce Website (MERN Stack)**  
