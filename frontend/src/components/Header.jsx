@@ -14,7 +14,9 @@ const Header = () => {
     <div className='flex justify-between py-5  font-medium  mr-[10%]'>
 
         <NavLink to='/'>
-        <div className='text-3xl'>MERNWear</div>
+        <div className='text-3xl '>
+        <h1 className='text-3xl font-semibold text-gray-600 mt-1  '>MERNWare </h1>
+        </div>
         </NavLink>
 
         <ul className='justify-between flex gap-8 mt-2 '>

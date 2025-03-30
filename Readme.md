@@ -1,3 +1,8 @@
+# **Live link of the website**
+
+### https://mearnware.onrender.com
+
+
 # **🛍️ E-Commerce Website (MERN Stack)**  
 
 🚀 **A fully functional e-commerce website for clothing**, built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js). The platform provides a seamless shopping experience with advanced filtering, an intuitive cart system, and a powerful **admin panel** for managing products and orders.  
