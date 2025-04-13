@@ -42,25 +42,25 @@ const Collection = () => {
         onFilterChange={(selectedFilters) =>
           handleFilterChange('categories', selectedFilters)
         }
-      />
-      <Filter
-        title="TYPES"
-        options={['TopWear', 'BottomWear', 'WinterWear', 'SummerWear']}
-        onFilterChange={(selectedFilters) =>
-          handleFilterChange('types', selectedFilters)
-        }
-      />
+        />
+        <Filter
+          title="TYPES"
+          options={['TopWear', 'BottomWear', 'WinterWear', 'SummerWear']}
+          onFilterChange={(selectedFilters) =>
+            handleFilterChange('types', selectedFilters)
+          }
+        />
       </div>
-      <div className='w-full'>
+      <div className='w-full '>
         <div className='text-3xl font-semibold flex justify-between '>
           <div className='flex w-full '>
-          <p className='text-slate-500'>All <span className='text-slate-700'>Collection</span> </p>
-          <p className='w-[20%] h-[4px] bg-[#414141] mt-5 ml-4 '></p>
-        </div>
+            <p className='text-slate-500'>All <span className='text-slate-700'>Collection</span> </p>
+            <p className='w-[20%] h-[4px] bg-[#414141] mt-5 ml-4 '></p>
+          </div>
         </div>
         <div>
           {products.length > 0 ? (
-              <div className="flex gap-2 ">
+              <div className="flex gap-1">
                   {products.map((product) => (
                       <ProductList
                           key={product.name}
