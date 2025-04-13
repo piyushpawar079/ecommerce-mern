@@ -57,14 +57,6 @@ const Collection = () => {
           <p className='text-slate-500'>All <span className='text-slate-700'>Collection</span> </p>
           <p className='w-[20%] h-[4px] bg-[#414141] mt-5 ml-4 '></p>
         </div>
-        <div className='mr-[13%]'>
-          <select className=' border border-gray-500 rounded-md text-sm  p-3 font-medium '>
-            <option value="">Sort by: Relavent</option>
-            <option value="">Sort by: Low to high</option>
-            <option value="">Sort by: high to low</option>
-          </select>
-
-        </div>
         </div>
         <div>
           {products.length > 0 ? (
