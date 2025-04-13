@@ -6,6 +6,7 @@ const addProduct = async (req, res) => {
 
     const images =  req.files
     const { productName, productDescription, category, subCategory, price, sizes } = req.body
+    console.log(productName, productDescription, category, subCategory, price, sizes, images)
 
 
     if (!productName || !productDescription || !category || !subCategory || !price || !sizes || images.length === 0) {
