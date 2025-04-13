@@ -1,23 +1,24 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const ProductList = ({
-  title, 
-  image, 
-  price
-}) => {
+const ProductList = ({ title, image, price }) => {
   return (
-    <div className='mt-2 w-[25%]  mr-4 '>
-
-      <div className=' border p-2 border-gray-300 h-full'>
-        <NavLink to={`/singleProduct/${title}`} className='w-full  flex-col flex'>
-          <img src={image} alt="product_image" className='pb-1 '/>
-          <p>{title}</p>
-          <p className='font-semibold'>${price}</p>
-        </NavLink>
-      </div>
+    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transform hover:scale-[1.03] transition-all duration-300">
+      <NavLink to={`/singleProduct/${title}`} className="block">
+        <div className="overflow-hidden h-64">
+          <img
+            src={image}
+            alt="product_image"
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+          />
+        </div>
+        <div className="p-4 text-center">
+          <p className="font-medium text-gray-800">{title}</p>
+          <p className="font-semibold text-black">${price}</p>
+        </div>
+      </NavLink>
     </div>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;
