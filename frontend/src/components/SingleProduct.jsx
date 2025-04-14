@@ -83,7 +83,7 @@ const SingleProduct = () => {
           <img
             src={selectedImage}
             alt="Selected Product"
-            className="w-full h-[400px] object-cover rounded-lg shadow-md"
+            className="w-full h-[600px] object-cover rounded-lg shadow-lg"
           />
         </div>
 

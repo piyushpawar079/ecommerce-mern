@@ -64,14 +64,6 @@ const Header = () => {
         </ul>
 
         <div className='flex  gap-5 '>
-
-        <button>
-            <img
-            src="https://imgs.search.brave.com/Kw4LMGOHkDlCEd2krqDqsoi_O6oo6ZiXsHrkRy97lS0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4w/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvYnV0dG9uLW91/dGxpbmUvNjQvQlVU/VE9OLTEyLTUxMi5w/bmc"
-            alt="search" className='w-8 h-8 mt-1 ' />
-        </button>
-
-
             {loggedIn ?
               <div className='group relative'>
                     <img
@@ -80,7 +72,6 @@ const Header = () => {
         
                     <div className='group-hover:block hidden absolute dropdown-menu right-0  dropdown-menu '>
                         <div className='flex flex-col gap-2 bg-slate-100 p-2 w-24 mt-2'>
-                        <p className='cursor-pointer hover:text-black text-gray-500'>My Profile</p>
                         <NavLink to='/allOrders'>
                           <p className='cursor-pointer hover:text-black text-gray-500'>Orders</p>
                         </NavLink>

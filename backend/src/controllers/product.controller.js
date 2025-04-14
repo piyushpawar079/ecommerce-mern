@@ -99,7 +99,7 @@ const getAllProducts = async (req, res) => {
             subCategory: { $in: types } });
 
         // Use $or to combine conditions
-        query = { $or: orConditions };
+        query = { $and: orConditions };
     }
 
 

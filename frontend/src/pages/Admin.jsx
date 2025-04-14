@@ -35,7 +35,7 @@ const Admin = () => {
       {/* Header */}
       <div className="border pb-[1%] justify-between flex py-5">
         <div className="pl-[10%]">
-          <p className="text-3xl text-gray-500">MyWebsite</p>
+          <p className="text-3xl text-gray-500">MERNWare</p>
           <p className="text-pink-400">Admin Panel</p>
         </div>
         <div className="pr-[6%] mt-2">
