@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { resetQuantity } from "./productSlice";
 
 const initialState = {
     userAuth: false,
@@ -18,6 +19,7 @@ const authSlice = createSlice({
         userLogout: (state) => {
             state.userAuth = false
             state.userId = null
+            resetQuantity()
         },
 
         adminLogin: (state) => {
